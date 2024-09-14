@@ -1,0 +1,25 @@
+<div>
+  <h3 class="float-md-start mb-0">
+    <%= link_to "MyRA", root_path, class:"navbar-brand" %>
+  </h3>
+
+  <% if customer_signed_in? %>
+    <nav class="nav nav-masthead justify-content-center float-md-end">
+      <%= active_link_to "Home", root_path, :active => [['homes'], ['top']], class:"nav-link fw-bold py-1 px-0" %>
+      <%= active_link_to "About", about_path, :active => [['homes'], ['about']], class:"nav-link fw-bold py-1 px-0" %>
+      <%= active_link_to "Log out", destroy_customer_session_path, method: :delete, class:"nav-link fw-bold py-1 px-0" %>
+    </nav>
+  <% elsif admin_signed_in? %>
+    <nav class="nav nav-masthead justify-content-center float-md-end">
+      <%= active_link_to "Home", root_path, :active => [['homes'], ['about']], class:"nav-link fw-bold py-1 px-0" %>
+      <%= active_link_to "About", about_path, :active => [['homes'], ['about']], class:"nav-link fw-bold py-1 px-0" %>
+      <%= active_link_to "Log out", destroy_customer_session_path, method: :delete, class:"nav-link fw-bold py-1 px-0" %>
+    </nav>
+  <% else %>
+    <nav class="nav nav-masthead justify-content-center float-md-end">
+      <%= active_link_to "Home", root_path, :active => [['homes'], ['top']], class:"nav-link fw-bold py-1 px-0" %>
+      <%= active_link_to "About", about_path, :active => [['homes'], ['about']], class:"nav-link fw-bold py-1 px-0" %>
+      <%= active_link_to "Log in", new_customer_session_path, class:"nav-link fw-bold py-1 px-0" %>
+    </nav>
+  <% end %>
+</div>
