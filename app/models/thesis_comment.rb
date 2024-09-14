@@ -1,0 +1,2 @@
+class ThesisComment < ApplicationRecord
+end

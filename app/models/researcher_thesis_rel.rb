@@ -1,0 +1,2 @@
+class ResearcherThesisRel < ApplicationRecord
+end
