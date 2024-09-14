@@ -1,0 +1,2 @@
+class TodoComment < ApplicationRecord
+end
